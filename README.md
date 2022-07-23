@@ -43,4 +43,25 @@ U-SFAN
 ``` python multiclass_shot.py --method usfan --strong_shift ```
 
 ## Image Datasets
-Coming soon...
+
+## CIFAR9 &#8594; STL9
+
+```
+cd cifar/
+```
+
+Source Model training + Bayesian hypothesis generation:
+```
+python main_cda.py --s CIFAR9 --t STL9 --download --gpu 0 --mode source
+```
+
+SHOT-IM (using MAP) Target Adaptation:
+```
+python main_cda.py --s CIFAR9 --t STL9 --gpu 0 --mode target --method shot --lr 1e-3
+```
+
+U-SFAN (using Bayesian hypothesis) Target Adaptation:
+```
+python main_cda.py --s CIFAR9 --t STL9 --gpu 0 --mode target --method usfan --lr 1e-3
+```
+
